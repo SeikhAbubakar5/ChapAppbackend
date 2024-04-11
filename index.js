@@ -1,11 +1,12 @@
 require("dotenv").config({path:"src/.env"})
 const express =require('express')
 const mongoose= require("mongoose")
+const cors = require("cors");
 const chatRoutes=require("./src/Router/chatRoutes")
 const userRoutes=require("./src/Router/userRoutes")
 const app = express();
 app.use(express.json());
-
+app.use(cors());
 // Routes
 app.use('/api/user',userRoutes)
 app.use('/api/chat', chatRoutes);
